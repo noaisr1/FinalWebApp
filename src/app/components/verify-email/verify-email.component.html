@@ -1,27 +1,47 @@
-<div class="displayTable">
-    <div class="displayTableCell">
-  
-      <div class="authBlock">
-        <h3>Thank You for Registering</h3>
-  
-        <div class="formGroup" *ngIf="authService.userData as user">
-          <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-          <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
         
-        <!-- Calling SendVerificationMail() method using authService Api -->
-        <div class="formGroup">
-          <button type="button" class="btn btnPrimary" (click)="authService.SendVerificationMail()">
-            <i class="fas fa-redo-alt"></i>
-            Resend Verification Email
-          </button>
+<div class="container mt-5 myContainer mx-auto">
+  <div class="col-4 offset-4">
+    <div class="fill-style-1">
+      <div class="displayTable">
+        <div class="displayTableCell">
+      
+          <div class="authBlock">
+            <h1>Thank You for Registering</h1>
+            <div class="mt-2 text-danger"></div>
+            
+            <div class="formGroup" *ngIf="authService.userData as user">
+              <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+              <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+            </div>
+            
+            <!-- Calling SendVerificationMail() method using authService Api -->
+            <div class="formGroup">
+              <button type="button" class="btn btnPrimary" (click)="authService.SendVerificationMail()">
+                <i class="fas fa-redo-alt"></i>
+                Resend Verification Email
+              </button>
+            </div>
+      
+          </div>
+      
+          <div class="redirectToLogin">
+            <span>Go back to?<span class="redirect" routerLink="/sign-in"> Sign in</span></span>
+          </div>
+      
         </div>
-  
       </div>
-  
-      <div class="redirectToLogin">
-        <span>Go back to?<span class="redirect" routerLink="/sign-in"> Sign in</span></span>
-      </div>
-  
     </div>
   </div>
+</div>
