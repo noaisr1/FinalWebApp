@@ -1,0 +1,46 @@
+
+.fill-style-1 {
+    border-radius: 18px;
+    width: 100%;
+    padding: 20px;
+    border-style: solid;
+    border: #addefa;
+    background-color: #bbfdc9;
+    margin-left: 25;
+    font-size: 15px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+.myContainer{  
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(247, 196, 227);
+}
+table, tr {
+    border: 3px solid black;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+border-button-1 {
+    border-bottom: 1px solid black;
+    padding-bottom: 3px;
+}
+
+button-style {
+    margin-left: 5px;
+    background-color: #5feb7d;
+}
