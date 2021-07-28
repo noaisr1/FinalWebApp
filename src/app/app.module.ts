@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { MessageComponent } from './components/message/message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { FeedComponent } from './components/feed/feed.component';
     NavBarComponent,
     MessageFormComponent,
     FeedComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

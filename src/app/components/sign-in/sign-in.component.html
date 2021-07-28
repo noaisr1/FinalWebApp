@@ -29,22 +29,25 @@
       
             <!-- Calling SignIn Api from AuthService -->
             <div class="form-group">
-              <input type="button" class="btn btnPrimary border-button-1" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
-              <span class="or"><span class="orInner">/</span></span>
+              <input type="button" class="btn btn-primary border-button-1" value="Sign in" (click)="authService.SignIn(userName.value, userPassword.value)">
+              <br>
+              <span class="or"><span class="orInner">or</span></span>
               <!-- Calling GoogleAuth Api from AuthService -->
-              <button type="button" class="btn googleBtn border-button-1" (click)="authService.GoogleAuth()">
-                <i class="fab fa-google-plus-g"></i>
-                Log in with Google
-              </button>
+              <div class="form-group">
+                <a type="button" id="google-btn" class="btn btn-lg btn-google btn-block btn-outline" href="#"
+                  (click)="authService.GoogleAuth()"><img src="https://img.icons8.com/color/16/000000/google-logo.png">
+                  Sign in with Google
+                </a>
+              </div>
             </div>
       
             <div class="forgotPassword">
-              <span routerLink="/forgot-password">Forgot Password?</span>
+              <span routerLink="/forgot-password" class="btn-link">Forgot Password?</span>
             </div>
           </div>
       
           <div class="redirectToLogin">
-            <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+            <span>Don't have an account?<span class="redirect btn-link" routerLink="/register-user"> Sign Up</span></span>
           </div>
       
         </div>
