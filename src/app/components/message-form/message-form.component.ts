@@ -24,6 +24,11 @@ export class MessageFormComponent implements OnInit {
     if(event.keyCode === 13){
       this.post();
     }
+<<<<<<< HEAD
   }
 */
+=======
+  }*/
+
+>>>>>>> f56563e8b9487afa9e7547038623c7401cfdddae
 }
