@@ -16,7 +16,7 @@ export class MessageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  post(){
+  /*post(){
     this.messages.postMessage(this.message);
   }
 
@@ -24,6 +24,6 @@ export class MessageFormComponent implements OnInit {
     if(event.keyCode === 13){
       this.post();
     }
-  }
+  }*/
 
 }
