@@ -16,7 +16,7 @@ export class MessageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  post(){
+  /*post(){
     this.messages.postMessage(this.message);
   }
 
@@ -25,5 +25,5 @@ export class MessageFormComponent implements OnInit {
       this.post();
     }
   }
-
+*/
 }
