@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../services/user";
+import { User } from "../interfaces/user";
 import { AngularFireAuth } from "@angular/fire/auth";
 import {auth} from 'firebase/app';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -131,7 +131,8 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      admin: user.admin
     }
     return userRef.set(userData, {
       merge: true
@@ -146,4 +147,11 @@ export class AuthService {
     })
   }
 
+  checkIfAdmin(user: User){
+    if(!user) return false;
+    if(user.admin){
+      return true;
+    }
+    return false;
+  }
 }

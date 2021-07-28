@@ -14,6 +14,12 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MessageFormComponent } from './components/message-form/message-form.component';
+import { FeedComponent } from './components/feed/feed.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +27,13 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    ProfilePageComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavBarComponent,
+    MessageFormComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
