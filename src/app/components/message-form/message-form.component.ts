@@ -16,14 +16,15 @@ export class MessageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*post(){
+  post(){
     this.messages.postMessage(this.message);
+    this.message = '';
   }
 
-  handleSubmit(event){
+  handleSubmit(event: { keyCode: number; }){
     if(event.keyCode === 13){
       this.post();
     }
-  }*/
+  }
 
 }

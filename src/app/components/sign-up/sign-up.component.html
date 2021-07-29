@@ -24,6 +24,11 @@
               <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
               <div class="mt-2 text-danger"></div>
             </div>
+
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Nickname" #displayName required>
+              <div class="mt-2 text-danger"></div>
+            </div>
       
             <div class="form-group">
               <input type="password" class="form-control" placeholder="Password" #userPwd required>
@@ -31,13 +36,16 @@
             </div>
       
             
-            <button type="button" class="btn btn-primary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">Sign Up</button>
-            <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-              <i class="fab fa-google-plus-g"></i>
-              Continue with Google</button>
+            <button type="button" class="btn btn-primary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value, displayName.value)">Sign Up</button>
+            <div class="form-group">
+              <a type="button" id="google-btn" class="btn btn-lg btn-google btn-block btn-outline" href="#"
+                (click)="authService.GoogleAuth()"><img src="https://img.icons8.com/color/16/000000/google-logo.png">
+                Continue with Google
+              </a>
+            </div>
             
           <div class="redirectToLogin">
-            <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+            <span>Already have an account? <span class="redirect btn-link" routerLink="/sign-in">Sign In</span></span>
           </div>
         </div>
       

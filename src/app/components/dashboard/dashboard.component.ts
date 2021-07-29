@@ -1,8 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { Router } from "@angular/router";
-import { Message } from '../../shared/interfaces/message'
-
+import { MessageItem } from '../../shared/interfaces/message-item.model'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,7 +9,7 @@ import { Message } from '../../shared/interfaces/message'
 })
 export class DashboardComponent implements OnInit {
 
-  messages: Message[] | undefined;
+  messages!: MessageItem[];
 
 
   constructor(

@@ -1,4 +1,10 @@
-
+#google-btn{
+    font-size:15px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
 .fill-style-1 {
     border-radius: 18px;
     width: 100%;
