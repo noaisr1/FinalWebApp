@@ -1,0 +1,8 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+.mr-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+  }
