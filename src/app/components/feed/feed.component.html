@@ -1,6 +1,25 @@
 <div class="feed">
-    <div *ngFor = "let message of feed | async" class="message">
-        <app-message [message]=message></app-message>
+    <div *ngFor="let post of posts" class="posts">
+        <div class="messageContainer">
+            <div class="messageData">
+                <span class="sender">
+                    {{post?.title}}
+                </span>
+                <span class="timestamp">
+                    {{post?.time}}
+                </span>
+            </div>
+            <div>
+                {{ post?.message }}
+            </div>
+        </div>
     </div>
+    <div class="msgForm-wrapper">
+        <form #form="ngForm" (ngSubmit)="postMessage(form)">
+            <input class="messageInput" name="message" ngModel placeholder="Post something!" type="text">
+            <button class="messageBtn" type="submit" (click)="postMessage">Post</button>
+        </form>
+    </div>
+
 
 </div>

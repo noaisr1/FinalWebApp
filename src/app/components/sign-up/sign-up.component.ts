@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,16 +10,28 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-  email!: string;
-  password!: string;
-  displayName!: string;
-  errMsg!: string;
+
+  signUpForm: FormGroup = this.fb.group({
+    email: ['',[Validators.required, Validators.email]],
+    password: ['',[Validators.required]],
+    displayName: ['',[Validators.required]]
+  })
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private fb: FormBuilder,
   ) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  }
+
+  signUp(form: NgForm){
+    const {email, displayName, password} = form.value;
+    if(!form.value){
+      return;
+    }
+    this.authService.SignUp(email,password,displayName);
+    form.resetForm();
   }
 
 }

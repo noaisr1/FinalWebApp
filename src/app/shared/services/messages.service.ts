@@ -1,63 +1,45 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-//import { Observable } from 'rxjs/Observable';
-import { AuthService } from '../services/auth.service';
-
-import * as firebase from 'firebase/app';
-
-import { MessageItem } from '../interfaces/message-item.model';
+import { Injectable } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/firestore";
+import { map } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import * as firebase from 'firebase';
+import { User } from 'firebase';
+import { AuthService } from "./auth.service";
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn:'root'
 })
-export class MessagesService {
 
-  user!: firebase.User;
-  messages!: AngularFireList<any>;
-  message!: MessageItem;
-  userName!: Observable<String>;
+export class MessagesService{
+  currentUser: User;
 
-
-  constructor(
-    private db: AngularFireDatabase,
+  constructor(private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
-  ) { 
-    this.afAuth.authState.subscribe(auth=>{
-      if(auth!== undefined && auth!== null){
-        this.user=auth;
-      }
-    });
-  }
+    private authService: AuthService){
+      this.afAuth.authState.subscribe(user=> this.currentUser=user);
+    }
 
-  postMessage(msg: string){
-    const timestamp = this.getTimeStamp();
-    const email = "text@gmail.com"
-    //const email = this.user.email;
-    
-    this.messages.push({
-      message: msg,
-      timeSent: timestamp,
-      username: "testUser",
-      //userName: this.userName,
-      email: email
-    });
-  }
-  getTimeStamp(){
-    const now = new Date();
-    const date = 
-    now.getUTCFullYear() + '/' 
-    + (now.getUTCMonth()+1) + '/' 
-    + (now.getUTCDate());
-    const time = now.getUTCHours()+ ':' + now.getUTCMinutes();
+    getAllPosts(): Observable<any>{
+      return this.afs.collection<any>('posts', ref=> ref.orderBy('time','desc'))
+      .snapshotChanges().pipe(
+        map((actions) => {
+          return actions.map((a: any) => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
+    }
 
-    return (date + ' ' + time);
-
-  }
-
-  getMessages(): Observable<any>{
-    // Query to create our message feed binding
-    this.messages=this.db.list('messages');
-    return this.messages.valueChanges();
-  }
+    postMessage(message: string, ownerName: string, otherItem: any):void{
+      this.afs.collection('posts').add({
+        message,
+        title: ownerName,
+        user_id: this.currentUser.uid,
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+        ...otherItem
+      }).then(res=> console.log(res));
+    }
 }
