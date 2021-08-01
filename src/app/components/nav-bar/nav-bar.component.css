@@ -1,8 +1,9 @@
 .spacer{
-    flex: 1 1 auto;
+    text-align: right;
+    float: right;
 }
 
-.mr-auto .dropdown-menu {
+.dropdown-menu {
     left: auto !important;
     right: 0px;
   }

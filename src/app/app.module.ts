@@ -21,6 +21,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { MessageComponent } from './components/message/message.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { ChangeNameComponent } from './components/change-name/change-name.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,8 @@ import { MessageComponent } from './components/message/message.component';
     NavBarComponent,
     MessageFormComponent,
     FeedComponent,
-    MessageComponent
+    MessageComponent,
+    ChangeNameComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,7 @@ import { MessageComponent } from './components/message/message.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
