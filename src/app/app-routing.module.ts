@@ -12,6 +12,7 @@ import { ChangeNameComponent } from './components/change-name/change-name.compon
 import { ChangeEmailComponent } from './components/change-email/change-email.component';
 
 import { AuthGuard } from './shared/guards/auth.guard';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'profile-page', component: ProfilePageComponent },
-  { path: 'change-name', component: ChangeNameComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'change-name', component: ChangeNameComponent },
   { path: 'change-email', component: ChangeEmailComponent },
 ];

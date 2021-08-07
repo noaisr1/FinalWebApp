@@ -58,6 +58,7 @@ export class AuthService {
                   if (user) {
                     this.currentUser$.next(user);
                   }
+                  this.SendVerificationMail();
                 });
             });
         }
@@ -137,6 +138,16 @@ export class AuthService {
         return;
       })
 
+  }
+
+
+  ResetPassword(email: string){
+    return this.afAuth.sendPasswordResetEmail(email)
+    .then(()=>{
+      window.alert("Password reset email has been sent to "+email),
+      this.router.navigate(['profile-page']);
+    }).catch(error=>window.alert(error.code + " for password reset"));
+    
   }
 }
 
