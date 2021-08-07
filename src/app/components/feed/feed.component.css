@@ -1,7 +1,8 @@
 
-.feed{
+.feed-wrapper{
     overflow-y:scroll;
     overflow-x: auto;
+    max-height: 670px;
 }
 
 .center {
@@ -20,4 +21,8 @@
     margin-left: 12px;
     margin-right: 17px;
     margin-bottom: 5px;
+
+}
+.card{
+    background-color: transparent;
 }

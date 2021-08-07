@@ -4,7 +4,6 @@
             <form #form="ngForm" (ngSubmit)="postMessage(form)">
                 <input class="messageInput col-sm-3" name="message" ngModel placeholder="Post something!" type="text">
                 <button class="messageBtn btn-success myBtn" type="submit" (click)="postMessage">Post</button>
-                
             </form>
         </div>
     </div>
@@ -12,21 +11,19 @@
 
 <div class="container">
     <div class="row">
-        <div class="feed">
-            <div *ngFor="let post of posts " class="post">
-                <div class="messageContainer">
-                    <div class="messageData">
-                        <span class="sender">
+        <div class="feed-wrapper">
+            <div *ngFor="let post of posts " class="card">
+
+                <div class="card-body">
+                        <h5 class="card-title">
                             {{post?.title}}
-                        </span>
-                        <span class="timestamp">
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
                             {{post?.time?.seconds *1000 | date: 'shortTime'}}
-                        </span>
-                    </div>
-                    <div>
+                        </h6>
+                    <p class="card-text">
                         {{ post?.message }}
-                        <hr>
-                    </div>
+                    </p>
                 </div>
             </div>
 
