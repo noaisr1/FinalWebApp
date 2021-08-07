@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "finalwebproject-112c5": {
+      "hosting": {
+        "final-web-app": [
+          "finalwebproject-112c5"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+
+.feed{
+    overflow-y:scroll;
+    overflow-x: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myContainer{  
+    margin: 0 auto;
+    text-align: center;
+}
+
+.myBtn{
+    margin-top: 10px;
+    margin-left: 12px;
+    margin-right: 17px;
+    margin-bottom: 5px;
+}

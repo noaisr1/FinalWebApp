@@ -1,56 +1,63 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//import {MaterialModule} from './shared/material.module';
+import {AppRoutingModule} from './app-routing.module';
+import {SignInComponent} from './components/sign-in/sign-in.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-
+import { AuthService } from './shared/services/auth.service';
+import { MessagesService } from './shared/services/messages.service';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { MessageFormComponent } from './components/message-form/message-form.component';
-import { FeedComponent } from './components/feed/feed.component';
-import { MessageComponent } from './components/message/message.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ChangeNameComponent } from './components/change-name/change-name.component';
+import { ChangeEmailComponent } from './components/change-email/change-email.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     SignInComponent,
     SignUpComponent,
+    DashboardComponent,
+    FeedComponent,
+    FooterComponent,
+    HeaderComponent,
+    NavBarComponent,
+    ChangeNameComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
     ProfilePageComponent,
-    HeaderComponent,
-    FooterComponent,
-    NavBarComponent,
-    MessageFormComponent,
-    FeedComponent,
-    MessageComponent,
-    ChangeNameComponent
+    ChangeEmailComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    //MaterialModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
     NgbModule,
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthService,MessagesService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -23,21 +23,33 @@
         <div class="displayTableCell">
       
           <div class="authBlock">
-            <h3>Change Your Nickname</h3>
+            <h3 >Change Your Nickname</h3>
 
+            
             <div class="form-group">
-              <input type="lastName" class="form-control" placeholder="Last Nickname" #displayName required>
+              <input type="text" id="lastName" disabled class="form-control" [value]="user?.displayName" placeholder="Last Nickname" required>  
               <div class="mt-2 text-danger"></div>
             </div>
-
+            
             <div class="form-group">
-                <input type="newName" class="form-control" placeholder="New Nickname" #displayName required>
+                <input type="text" class="form-control" placeholder="New Nickname" 
+                [(ngModel)]="newDisplayName"  required>
                 <div class="mt-2 text-danger"></div>
             </div>
+
+            <div class="error" *ngIf="showSameNameError">
+              <span>last nickname is same to new nickname</span>
+            </div>
+
+            <div class="error" *ngIf="notNull">
+              <span>nickname is required</span>
+            </div>
       
-            
-        </div>
-      
+            <!-- Calling ChangeName Api from AuthService -->
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit" (click)="changeNickname()">Save</button>
+            </div>
+         </div>
       </div>
     </div>
   </div>

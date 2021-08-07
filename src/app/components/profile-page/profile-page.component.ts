@@ -8,7 +8,6 @@ import { Router } from "@angular/router";
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-
   constructor(
     public authService: AuthService,
     public router: Router,
