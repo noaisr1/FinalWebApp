@@ -16,6 +16,11 @@
     text-align: center;
 }
 
+.rowContainer{
+    margin-top: 40px;
+    padding-bottom: 60px;
+}
+
 .myBtn{
     margin-top: 10px;
     margin-left: 12px;

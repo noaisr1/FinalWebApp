@@ -3,32 +3,43 @@
   <app-nav-bar></app-nav-bar>
 </div>
 
-<!-- Top navigation -->
-<div class="container-fluid">
-    <div class="row">
-  
-      <!-- Main content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-  
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">User Profile</h1>
+
+<div class="container myContainer">
+  <div class="row">
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <div class="row" *ngIf="authService.currentUser as user">
+          <div class="col-md-12">
+            <h1>Hello, <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>                <p>Email: <strong>{{user.email}}</strong></p>
           </div>
+        </div>
+      </div>
           
-          <!-- Show user data when logged in -->
+          
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">My Posts</h1>
+      </div>
+
+      <div class="profile-wrapper">
+        <div *ngFor="let post of posts" class="card">
           <div class="row" *ngIf="authService.currentUser as user">
-            <div class="col-md-12">
-              <div class="media">
-                <div class="media-body">
-                  <h1>Hello, <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                  <p>Email: <strong>{{user.email}}</strong></p>
-                </div>
+            <div *ngIf="post?.user_id == user?.uid">
+              <div class="card-body">
+                  <h5 class="card-title">
+                      {{post?.title}}
+                  </h5>
+
+                  <h6 class="card-subtitle mb-2 text-muted">
+                      {{post?.time?.seconds *1000 | date: 'shortTime'}}
+                  </h6>
+
+                  <p class="card-text">
+                      {{ post?.message }}
+                  </p>
               </div>
             </div>
           </div>
-  
         </div>
-      </main>
-  
-    </div>
+      </div>
   </div>
+</div>
+  

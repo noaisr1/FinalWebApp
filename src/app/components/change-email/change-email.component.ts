@@ -81,13 +81,9 @@ export class ChangeEmailComponent implements OnInit {
     }
 
     if(this.sameEmailError || this.lastEmailinvalid || this.lastEmailNull || this.newEmailNull || this.passwordNull || this.invalidEmail || this.invalidPassword) return;
-    //check if the password is correct
     
     this.authService.updateEmailAddress(newEmail,lastEmail,password);
     form.resetForm();
-
-    
-
     console.log(this.user)
   }
   

@@ -63,7 +63,10 @@ export class AuthService {
             });
         }
       })
-      .catch(err => console.log(`Something went wrong ${err.message}`));
+      .catch((error) => {
+        console.log(`Something went wrong ${error.message}`);
+        window.alert(error);
+      })
   }
 
   get userData(): Observable<firebase.User> {
@@ -87,7 +90,10 @@ export class AuthService {
             this.currentUser$.next(this.currentUser);
             this.router.navigate(['dashboard']);
           });
-      }).catch(err => console.log(err.message));
+      }).catch((error) => {
+        console.log(error.message);
+        window.alert(error);
+      });
   }
 
   SignOut(): void {
@@ -140,14 +146,12 @@ export class AuthService {
 
   }
 
-
   ResetPassword(email: string){
     return this.afAuth.sendPasswordResetEmail(email)
     .then(()=>{
       window.alert("Password reset email has been sent to "+email),
-      this.router.navigate(['profile-page']);
-    }).catch(error=>window.alert(error.code + " for password reset"));
-    
+      this.router.navigate(['sign-in']);
+    }).catch(error=>window.alert(error.code + " for password reset")); 
   }
 }
 

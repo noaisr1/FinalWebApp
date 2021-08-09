@@ -1,0 +1,22 @@
+
+.profile-wrapper{
+    overflow-y:scroll;
+    overflow-x: hidden;
+    max-height: 670px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myContainer{  
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 60px;
+}
+
+.card{
+    background-color: transparent;
+}

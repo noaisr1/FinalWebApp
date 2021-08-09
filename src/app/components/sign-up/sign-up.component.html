@@ -16,23 +16,28 @@
             <h3>Sign Up</h3>
             <form #form="ngForm" (ngSubmit)="signUp(form)" class="sign-up-form">
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email Address" name="email" ngModel>
+                <input type="email" class="form-control" placeholder="Email Address" name="email" ngModel required>
                 <div class="mt-2 text-danger"></div>
               </div>
 
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Display Name" name="displayName" ngModel>
+                <input type="email" class="form-control" placeholder="Display Name" name="displayName" ngModel required>
                 <div class="mt-2 text-danger"></div>
               </div>
 
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" name="password" ngModel>
+                <input type="password" class="form-control" placeholder="Password" name="password" ngModel required>
                 <div class="mt-4 text-danger"></div>
               </div>
 
-
-              <button type="submit" class="btn btn-primary submit-button">Sign Up</button>
-
+              <div class="form-group">
+                <button [disabled]="form.invalid || form.pending"
+                  class="btn btn-primary submit-button" 
+                  *ngIf="!form.pending"
+                  type="submit">Sign Up
+                </button>
+              </div>
+              
             </form>
             <div class="redirectToLogin">
               <span>Already have an account? <span class="redirect btn-link" routerLink="/sign-in">Sign In</span></span>
