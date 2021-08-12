@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService, UserData } from 'src/app/shared/services/auth.service';
 import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
+import { post } from 'jquery';
 
 @Component({
   selector: 'app-feed',
@@ -44,5 +45,4 @@ export class FeedComponent implements OnInit {
     },);
     form.resetForm();
   }
-
 }

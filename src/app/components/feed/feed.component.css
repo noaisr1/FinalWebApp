@@ -26,8 +26,14 @@
     margin-left: 12px;
     margin-right: 17px;
     margin-bottom: 5px;
-
 }
+
+.deleteBtn{
+    margin-left: auto;
+    margin-bottom: 5px;
+    display: flex;
+}
+
 .card{
     background-color: transparent;
 }

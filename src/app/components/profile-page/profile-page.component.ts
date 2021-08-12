@@ -34,11 +34,16 @@ export class ProfilePageComponent implements OnInit {
   }
 
   userPosts(post: any): boolean{
+    console.log('yyyyyyyyes')
     console.log(this.user.uid , post.user_id)
+    console.log(post.user_id)
     if(this.user.uid == post){
-      console.log("lalala")
       return true;
     }
     return false;
+  }
+
+  deleteMessage(post: any){
+    
   }
 }

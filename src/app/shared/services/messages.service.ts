@@ -42,4 +42,8 @@ export class MessagesService{
         ...otherItem
       }).then(res=> console.log(res));
     }
+
+    deletePost(postId: any){
+      this.afs.collection('posts').doc(postId).delete();
+    }
 }
