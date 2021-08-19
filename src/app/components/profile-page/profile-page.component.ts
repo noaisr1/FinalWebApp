@@ -44,7 +44,9 @@ export class ProfilePageComponent implements OnInit {
   }
 
   deleteMessage(post: any){
-    console.log(post);
-    this.msgService.deletePost(post.id)
+    if(confirm(this.user.displayName+", Are you sure you want to delete this post?")) {
+      console.log(post);
+      this.msgService.deletePost(post.id)
+    }
   }
 }
