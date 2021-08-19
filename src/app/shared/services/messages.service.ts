@@ -44,6 +44,7 @@ export class MessagesService{
     }
 
     deletePost(postId: any){
+      console.log("delete post!!!!!")
       this.afs.collection('posts').doc(postId).delete();
     }
 }

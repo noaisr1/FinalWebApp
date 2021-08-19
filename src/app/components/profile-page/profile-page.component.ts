@@ -44,6 +44,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   deleteMessage(post: any){
-    
+    console.log(post);
+    this.msgService.deletePost(post.id)
   }
 }

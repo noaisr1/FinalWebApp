@@ -23,6 +23,14 @@
                             {{post?.time?.seconds *1000 | date: 'shortTime'}}
                         </h6>
 
+                        <div class="float-right" *ngIf="authService.currentUser as user">
+                            <div *ngIf="post?.user_id == user?.uid">
+                                <div class="col-sm-2 col-12">
+                                    <button class="btn-success deleteBtn" type="delete" (click)="deleteMessage(this.post)">delete</button>
+                                </div>
+                            </div>
+                        </div>
+
                     <p class="card-text">
                         {{ post?.message }}
                     </p>

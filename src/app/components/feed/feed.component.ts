@@ -19,7 +19,7 @@ export class FeedComponent implements OnInit {
 
   constructor(
     private msgService: MessagesService,
-    private authService: AuthService
+    public authService: AuthService
   ) {
 
   }
@@ -44,5 +44,10 @@ export class FeedComponent implements OnInit {
       displayName: this.user.displayName
     },);
     form.resetForm();
+  }
+
+  deleteMessage(post: any){
+    console.log(post);
+    this.msgService.deletePost(post.id)
   }
 }
