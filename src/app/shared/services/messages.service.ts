@@ -34,10 +34,17 @@ export class MessagesService{
     }
 
     postMessage(message: string, ownerName: string, otherItem: any):void{
+      var dateObj = new Date();
+      var month = dateObj.getUTCMonth() + 1; //months from 1-12
+      var day = dateObj.getUTCDate();
+      var year = dateObj.getUTCFullYear();
+      var newdate = day + "/" + month + "/" + year;
+
       this.afs.collection('posts').add({
         message,
         title: ownerName,
         user_id: this.currentUser.uid,
+        date: newdate,
         time: firebase.firestore.FieldValue.serverTimestamp(),
         ...otherItem
       }).then(res=> console.log(res));

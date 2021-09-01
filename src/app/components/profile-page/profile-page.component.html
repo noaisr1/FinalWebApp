@@ -30,17 +30,17 @@
                   </h5>
 
                   <div class="row">
-                    <div class="col-sm-10 col-12">
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            {{post?.time?.seconds *1000 | date: 'shortTime'}}
-                        </h6>
+                      <div class="col-sm-10 col-12">
+                          <h6 class="card-subtitle mb-2 text-muted">
+                              {{post?.time?.seconds *1000 | date: 'shortTime'}}
+                              {{post?.date}}
+                          </h6>
                     </div>
                     
                     <div class="col-sm-2 col-12">
                         <button class="btn-success deleteBtn" type="delete" (click)="deleteMessage(this.post)">delete</button>
-                
                     </div>
-                </div>
+                  </div>
                 
                   <p class="card-text">
                       {{ post?.message }}

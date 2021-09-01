@@ -34,7 +34,6 @@ export class ProfilePageComponent implements OnInit {
   }
 
   userPosts(post: any): boolean{
-    console.log('yyyyyyyyes')
     console.log(this.user.uid , post.user_id)
     console.log(post.user_id)
     if(this.user.uid == post){
@@ -45,7 +44,10 @@ export class ProfilePageComponent implements OnInit {
 
   deleteMessage(post: any){
     if(confirm(this.user.displayName+", Are you sure you want to delete this post?")) {
-      console.log(post);
+      console.log('yesssss');
+      console.log('time: ' + post.time);
+      console.log('date: ' + post.date);
+      console.log('yesssss');
       this.msgService.deletePost(post.id)
     }
   }
