@@ -4,7 +4,8 @@ import { BehaviorSubject, Observable } from "rxjs";
 import * as firebase from 'firebase/app';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
-
+import { auth } from "firebase"
+import { storage } from "firebase/app";
 @Injectable({
   providedIn: 'root'
 
@@ -48,7 +49,8 @@ export class AuthService {
           this.afs.collection('users').doc(res.user.uid)
             .set({
               email,
-              displayName
+              displayName,
+              admin: false,
             }).then(value => {
               this.afs.collection<UserData>('users')
                 .doc<UserData>(res.user.uid)
@@ -69,18 +71,17 @@ export class AuthService {
       })
   }
 
+
   get userData(): Observable<firebase.User> {
     return this._userData;
   }
 
   SignIn(email: string, password: string): void {
     console.log(email, password);
-
     this.afAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log(res);
         this._userData = this.afAuth.authState;
-
         this.afs.collection<UserData>('users')
           .doc<UserData>(res.user.uid)
           .valueChanges()
@@ -88,7 +89,14 @@ export class AuthService {
             console.log(user);
             this.currentUser = user;
             this.currentUser$.next(this.currentUser);
-            this.router.navigate(['dashboard']);
+            if( ! firebase.auth().currentUser.emailVerified){
+              window.alert("Please Verify Your Email Account");
+              this.router.navigate(['sign-in']);
+            }
+            else{
+              this.router.navigate(['dashboard']);
+            }
+            
           });
       }).catch((error) => {
         console.log(error.message);
@@ -159,4 +167,5 @@ export interface UserData {
   uid?: string;
   email: string;
   displayName: string;
+  admin: boolean,
 }

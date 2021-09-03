@@ -25,7 +25,7 @@
                         </h6>
 
                         <div class="float-right" *ngIf="authService.currentUser as user">
-                            <div *ngIf="post?.user_id == user?.uid">
+                            <div *ngIf="(post?.user_id == user?.uid) || user?.admin == true">
                                 <div class="col-sm-2 col-12">
                                     <button class="btn-success deleteBtn" type="delete" (click)="deleteMessage(this.post)">delete</button>
                                 </div>
