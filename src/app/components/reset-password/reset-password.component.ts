@@ -36,9 +36,6 @@ export class ResetPasswordComponent implements OnInit {
        return;
     }
     this.authService.ResetPassword(email);
-    form.resetForm();
-    
+    form.resetForm(); 
   }
-  
-
 }

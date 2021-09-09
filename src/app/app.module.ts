@@ -27,6 +27,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ChangeNameComponent } from './components/change-name/change-name.component';
 import { ChangeEmailComponent } from './components/change-email/change-email.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { AddImageComponent } from './components/add-image/add-image.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ProfilePageComponent,
     ChangeEmailComponent,
     ResetPasswordComponent,
+    AddImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     FormsModule,
     NgbModule,
     AngularFireAuthModule,
+    HttpClientModule,
   ],
   providers: [AuthService,MessagesService],
   bootstrap: [AppComponent]

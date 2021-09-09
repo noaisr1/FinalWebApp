@@ -51,6 +51,7 @@ export class AuthService {
               email,
               displayName,
               admin: false,
+              picture: "assets/img/no-image-icon.jpg",
             }).then(value => {
               this.afs.collection<UserData>('users')
                 .doc<UserData>(res.user.uid)
@@ -96,7 +97,6 @@ export class AuthService {
             else{
               this.router.navigate(['dashboard']);
             }
-            
           });
       }).catch((error) => {
         console.log(error.message);
@@ -167,5 +167,6 @@ export interface UserData {
   uid?: string;
   email: string;
   displayName: string;
-  admin: boolean,
+  admin: boolean;
+  picture: string;
 }

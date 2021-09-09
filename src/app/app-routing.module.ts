@@ -10,6 +10,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ChangeNameComponent } from './components/change-name/change-name.component';
 import { ChangeEmailComponent } from './components/change-email/change-email.component';
+import { AddImageComponent } from './components/add-image/add-image.component';
 
 import { AuthGuard } from './shared/guards/auth.guard';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'change-name', component: ChangeNameComponent },
   { path: 'change-email', component: ChangeEmailComponent },
+  { path: 'add-image', component: AddImageComponent },
 ];
 @NgModule({
   imports: [

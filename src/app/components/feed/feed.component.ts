@@ -39,11 +39,15 @@ export class FeedComponent implements OnInit {
 
   postMessage(form: NgForm): void {
     const { message } = form.value;
-    this.msgService.postMessage(message,
-      `${this.user.displayName}`, {
-      displayName: this.user.displayName
-    },);
-    form.resetForm();
+    if(message){
+      this.msgService.postMessage(message,
+        `${this.user.displayName}`, {
+        displayName: this.user.displayName
+      },);
+      form.resetForm();
+    } else{
+      confirm(this.user.displayName+", You can not post a blank message")
+    }  
   }
 
   deleteMessage(post: any){
@@ -51,5 +55,9 @@ export class FeedComponent implements OnInit {
       console.log(post);
       this.msgService.deletePost(post.id)
     }
+  }
+
+  getUserProfileImage() {
+    return this.user.picture;
   }
 }

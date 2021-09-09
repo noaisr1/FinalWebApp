@@ -3,7 +3,7 @@
         <div class="msgForm-wrapper">
             <form #form="ngForm" (ngSubmit)="postMessage(form)">
                 <input class="messageInput col-sm-3" name="message" ngModel placeholder="Post something!" type="text">
-                <button class="messageBtn btn-success myBtn" type="submit" (click)="postMessage">Post</button>
+                <button class="messageBtn btn btn-success myBtn" type="submit" (click)="postMessage">Post</button>
             </form>
         </div>
     </div>
@@ -23,11 +23,11 @@
                             {{post?.time?.seconds *1000 | date: 'shortTime'}}
                             {{post?.date}}
                         </h6>
-
+                        
                         <div class="float-right" *ngIf="authService.currentUser as user">
                             <div *ngIf="(post?.user_id == user?.uid) || user?.admin == true">
                                 <div class="col-sm-2 col-12">
-                                    <button class="btn-success deleteBtn" type="delete" (click)="deleteMessage(this.post)">delete</button>
+                                    <button class="btn btn-success deleteBtn" type="delete" (click)="deleteMessage(this.post)">delete</button>
                                 </div>
                             </div>
                         </div>

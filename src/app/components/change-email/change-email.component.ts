@@ -15,7 +15,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 export class ChangeEmailComponent implements OnInit {
   user: UserData = {} as UserData;
   sameEmailError:boolean = false;
-  lastEmailinvalid = false;
+  lastEmailinvalid:boolean = false;
   lastEmailNull: boolean = false;
   newEmailNull: boolean = false;
   passwordNull: boolean = false;

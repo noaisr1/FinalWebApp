@@ -51,4 +51,8 @@ export class ProfilePageComponent implements OnInit {
       this.msgService.deletePost(post.id)
     }
   }
+
+  getUserProfileImage() {
+    return this.user.picture;
+  }
 }

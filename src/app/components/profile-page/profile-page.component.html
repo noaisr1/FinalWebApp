@@ -9,7 +9,11 @@
       <div class="pt-3 pb-2 mb-3 border-bottom">
         <div class="row" *ngIf="authService.currentUser as user">
           <div class="col-md-12">
-            <h1>Hello, <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>                <p>Email: <strong>{{user.email}}</strong></p>
+            <h1>Hello, <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>                
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <div class="image-preview" id="right">
+              <img [src]="getUserProfileImage()" style="width:400px; height:250px"/>
+            </div>
           </div>
         </div>
       </div>
