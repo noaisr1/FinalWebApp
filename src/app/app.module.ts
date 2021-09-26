@@ -28,7 +28,6 @@ import { ChangeNameComponent } from './components/change-name/change-name.compon
 import { ChangeEmailComponent } from './components/change-email/change-email.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AddImageComponent } from './components/add-image/add-image.component';
-import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -60,7 +59,6 @@ import { HttpClientModule } from '@angular/common/http'
     FormsModule,
     NgbModule,
     AngularFireAuthModule,
-    HttpClientModule,
   ],
   providers: [AuthService,MessagesService],
   bootstrap: [AppComponent]

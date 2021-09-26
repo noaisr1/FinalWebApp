@@ -8,42 +8,44 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<div class="container mt-5 myContainer mx-auto">
-  <div class="col-4 offset-2">
-    <div class="fill-style-1">
-      <div class="displayTableCell">
-        <div class="authBlock">
-          <h3>Sign In</h3>
-          <form #form="ngForm" (ngSubmit)="login(form)" class="sign-in-form">
-            <div class="form-group">
-              <input type="text" class="form-control" ngModel placeholder="Email Address" name="email" required>
-              <div class="mt-2 text-danger"></div>
-            </div>
+<body>
+  <div class="container mt-5 myContainer mx-auto">
+    <div class="col-md-4 offset-4 mt-5 ml-auto mr-auto">
+      <div class="fill-style-1">
+        <div class="displayTableCell">
+          <div class="authBlock">
+            <h3>Sign In</h3>
+            <form #form="ngForm" (ngSubmit)="login(form)" class="sign-in-form">
+              <div class="form-group">
+                <input type="text" class="form-control" ngModel placeholder="Email Address" name="email" required>
+                <div class="mt-2 text-danger"></div>
+              </div>
 
-            <div class="form-group">
-              <input type="password" class="form-control" ngModel placeholder="Password" name="password" required>
-              <div class="mt-4 text-danger"></div>
-            </div>
+              <div class="form-group">
+                <input type="password" class="form-control" ngModel placeholder="Password" name="password" required>
+                <div class="mt-4 text-danger"></div>
+              </div>
 
-            <!-- Calling SignIn Api from AuthService -->
-            <div class="form-group">
-              <button [disabled]="form.invalid || form.pending"
-                class="login-button btn btn-primary" 
-                *ngIf="!form.pending"
-                type="submit">Sign In
-              </button>
+              <!-- Calling SignIn Api from AuthService -->
+              <div class="form-group">
+                <button [disabled]="form.invalid || form.pending"
+                  class="login-button btn btn-primary" 
+                  *ngIf="!form.pending"
+                  type="submit">Sign In
+                </button>
 
+              </div>
+            </form>
+            <div class="forgotPassword">
+              <span routerLink="/forgot-password" class="btn-link">Forgot Password?</span>
             </div>
-          </form>
-          <div class="forgotPassword">
-            <span routerLink="/forgot-password" class="btn-link">Forgot Password?</span>
           </div>
-        </div>
 
-        <div class="redirectToLogin">
-          <span>Don't have an account?<span class="redirect btn-link" routerLink="/register-user"> Sign Up</span></span>
+          <div class="redirectToLogin">
+            <span>Don't have an account?<span class="redirect btn-link" routerLink="/register-user"> Sign Up</span></span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>

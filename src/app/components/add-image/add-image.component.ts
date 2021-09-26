@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { AuthService, UserData } from 'src/app/shared/services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -18,7 +17,6 @@ export class AddImageComponent implements OnInit {
   fileIsNull: boolean = false;
 
   constructor(public authService: AuthService,
-              private httpClient: HttpClient,
               private afs: AngularFirestore) { }
 
   async ngOnInit(): Promise<void> {
@@ -87,6 +85,6 @@ export class AddImageComponent implements OnInit {
       .update({picture:newPic}).then(()=>{
         console.log("changed successfully")
       });
-        }
     }
+  }
 }

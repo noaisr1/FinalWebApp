@@ -25,10 +25,3 @@ h1 {
     margin: 0 auto;
     text-align: center;
 }
-
-table, tr {
-    border: 3px solid black;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
