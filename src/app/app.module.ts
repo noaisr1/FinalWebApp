@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//import {MaterialModule} from './shared/material.module';
 import {AppRoutingModule} from './app-routing.module';
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -50,7 +49,6 @@ import { AddImageComponent } from './components/add-image/add-image.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    //MaterialModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

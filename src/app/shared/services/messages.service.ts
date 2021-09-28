@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 import { Observable } from "rxjs";
 import * as firebase from 'firebase';
 import { User } from 'firebase';
-import { AuthService } from "./auth.service";
 import { AngularFireAuth } from "angularfire2/auth";
 
 @Injectable({
@@ -14,9 +13,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 export class MessagesService{
   currentUser: User;
 
-  constructor(private afs: AngularFirestore,
-    private afAuth: AngularFireAuth,
-    private authService: AuthService){
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth){
       this.afAuth.authState.subscribe(user=> this.currentUser=user);
     }
 
@@ -51,7 +48,6 @@ export class MessagesService{
     }
 
     deletePost(postId: any){
-      console.log("delete post!!!!!")
       this.afs.collection('posts').doc(postId).delete();
     }
 }

@@ -9,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   templateUrl: './add-image.component.html',
   styleUrls: ['./add-image.component.css']
 })
+
 export class AddImageComponent implements OnInit {
   subs: Subscription[] = [];
   user: UserData;

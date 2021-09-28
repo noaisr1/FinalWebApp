@@ -4,8 +4,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import * as firebase from 'firebase/app';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
-import { auth } from "firebase"
-import { storage } from "firebase/app";
+
 @Injectable({
   providedIn: 'root'
 
